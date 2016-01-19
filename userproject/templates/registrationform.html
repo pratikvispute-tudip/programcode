@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Tudip</title>
+    </head>
+
+    <body>
+        <h1>Register with Tudip</h1>
+
+
+        {% if registered %}
+
+        Tudip says: <strong>thank you for registering!</strong>
+        
+        {% else %}
+        {% if alreadyregistered %}
+
+        {% else %}
+
+        Tudip says: <strong>register here!</strong><br />
+        {% endif %}
+
+
+        <form id="user_form" method="post" action=""
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+           
+            {{ form.as_p }}
+            
+
+            <input type="submit" name="submit" value="Register"/>
+        {% if alreadyregistered %}
+            <strong>Already registered</strong>
+        {% endif %}
+
+        </form>
+        
+
+        {% endif %}
+    </body>
+</html>
